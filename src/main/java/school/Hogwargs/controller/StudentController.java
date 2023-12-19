@@ -22,7 +22,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public Student read(@PathVariable long id ) {
+    public Student read(@PathVariable long id) {
         return studentService.read(id);
     }
 
@@ -36,9 +36,15 @@ public class StudentController {
         return studentService.delete(id);
     }
 
-    @GetMapping
+    @GetMapping("/age")
+    public Collection<Student> readByAgeBetWeen(@RequestParam int minAge,int maxAge){
+        return studentService.readByAgeBetWeen(minAge,maxAge);
+    }
 
-    public Collection<Student> readByAge(@RequestParam int age){
+    @GetMapping
+    public Collection<Student> readByAge(@RequestParam int age) {
         return studentService.readByAge(age);
     }
 }
+
+
